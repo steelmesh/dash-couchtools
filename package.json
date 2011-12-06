@@ -1,0 +1,33 @@
+{
+    "name": "dash-couchtools",
+    "description": "Steelmesh Dashboard CouchDB Tools Plugin",
+    "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
+    "tags": ["steelmesh", "dashboard", "couchdb"],
+    "version": "0.0.1",
+    
+    "main": "index.js",
+    "engines": { "node": ">= 0.4.x < 0.7.0" },
+        
+    "dependencies": {
+        "debug": "*",
+        "request": ">= 2.2.0",
+        "replimate": "*"
+    },
+    
+    "devDependencies": {
+    },
+    
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/steelmesh/dash-couchtools.git"
+    },
+    
+    "bugs": {
+        "url": "http://github.com/steelmesh/dash-couchtools/issues"
+    },
+    
+    "contributors": [
+    ],
+    
+    "private": true
+}

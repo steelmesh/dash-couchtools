@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<ul class="breadcrumb">
+  <li><a href="/">Dashboard</a> <span class="divider">/</span></li>
+  <li class="active">Replication</li>
+</ul>
+
+<ul class="repljob-list">
+{% for doc in docs %}
+	<li>
+		<h5>{{ doc._id }}</h5>
+		<table class="repljob condensed-table">
+		<tr>
+			<th>From:</th>
+			<td><a href="{{ doc.source }}" target="_blank">{{ doc.source }}</a></td>
+		</tr>
+		<tr>
+			<th>To:</th>
+			<td>{{ doc.target }}{% if doc.continuous %}&nbsp;<span class="label notice">continuous</span>{% endif %}</td>
+		</tr>
+		<tr>
+			<th>Status:</th>
+			<td>{{ doc._replication_state }}</td>
+		</tr>
+		<tr>
+			<th>Actions:</th>
+			<td>
+				<a href="/replication/delete/{{ doc._id }}?rev={{ doc._rev }}" class="btn small danger">Delete</a>
+			</td>
+		</tr>
+		</table>
+	</li>
+{% endfor %}
+</ul>
+
+<div class="well">
+	<a href="/replication/clear_completed" class="btn primary">Clear Completed</a>
+	<a href="/replication/add" class="btn">Add Replication Job</a>
+</div>
+
+
+<script>
+$(function() {
+	$('.replid').popover();
+});
+</script>
+{% endblock %}
